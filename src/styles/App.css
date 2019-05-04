@@ -24,6 +24,18 @@ body {
   padding: 30px;
 }
 
+.todo-list > button {
+  height: 44px;
+  text-align: center;
+  width: 80%;
+  border-radius: 10px;
+  background-color: #3592FE;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+}
+
 .todo-item {
   display: flex;
   justify-content: flex-start;

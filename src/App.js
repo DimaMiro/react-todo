@@ -12,6 +12,7 @@ class App extends Component {
       todos: data
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleAddNew = this.handleAddNew.bind(this)
   }
 
   handleChange(id){
@@ -28,10 +29,39 @@ class App extends Component {
     })
   }
 
+  handleAddNew() {
+    let itemName
+    let prompt = window.prompt("Enter item name:", "")
+    if (prompt !== null || prompt !== "") {
+      itemName = prompt
+    } else {
+      alert("Enter item name!")
+    }
+    this.setState(prevState => {
+      let updatedTodos
+      if (prevState.todos.length === 0){
+        updatedTodos = prevState.todos.push({
+          id: 0,
+          text: itemName,
+          completed: false
+        })
+      } else {
+        const lastItemId = prevState.todos[prevState.todos.length - 1].id
+        updatedTodos = prevState.todos.push({
+          id: lastItemId + 1,
+          text: itemName,
+          completed: false
+        })
+      }
+      return updatedTodos
+    })
+  }
+
   render() {
     const todoItems = this.state.todos.map(item => <TodoItem key = {item.id} item = {item} handleChange = {this.handleChange}/>)
     return (
       <div className = "todo-list">
+        <button onClick={this.handleAddNew}>Add New Item</button>
         {todoItems}
       </div>
     )
