@@ -61,7 +61,8 @@ class App extends Component {
     const todoItems = this.state.todos.map(item => <TodoItem key = {item.id} item = {item} handleChange = {this.handleChange}/>)
     return (
       <div className = "todo-list">
-        <button onClick={this.handleAddNew}>Add New Item</button>
+        <h1>All you need to do...</h1>
+        <button onClick={this.handleAddNew}>Add</button>
         {todoItems}
       </div>
     )

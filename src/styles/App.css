@@ -28,6 +28,7 @@ body {
   height: 44px;
   text-align: center;
   width: 80%;
+  max-width: 300px;
   border-radius: 10px;
   background-color: #3592FE;
   border: none;
